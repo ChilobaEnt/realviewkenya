@@ -114,7 +114,31 @@
       gap: 20px;
       justify-content: center;
     }
+    
+  #popupForm {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
 
+    #popupForm form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    #popupForm input, #popupForm textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
     @media screen and (max-width: 600px) {
       header h1 {
         font-size: 2rem;
@@ -157,26 +181,33 @@
   </section>
   
  <section id="pricing">
-    <h2>Pricing Packages</h2>
-    <div class="pricing-wrapper">
+  <h2>Pricing Packages</h2>
+  <div class="pricing-wrapper">
 
-      <div class="pricing-box">
-        <h3>Basic Package</h3>
-        <p>🎥 1 Virtual Tour<br>📸 5 Photos<br>📍 Nairobi only</p>
-        <p><strong>Ksh 5,000</strong></p>
-      </div>
+    <div class="pricing-box">
+      <h3>Basic Package</h3>
+      <p>🎥 1 Virtual Tour<br>📸 5 Photos<br>📍 Nairobi only</p>
+      <p><strong>Ksh 5,000</strong></p>
+      <button class="button" onclick="openForm('Basic Package')">Request Package</button>
+    </div>
 
-      <div class="pricing-box">
-        <h3>Standard Package</h3>
-        <p>🎥 3 Virtual Tours<br>📸 15 Photos<br>🌍 Nairobi & Mombasa</p>
-        <p><strong>Ksh 12,000</strong></p>
-      </div>
+    <div class="pricing-box">
+      <h3>Standard Package</h3>
+      <p>🎥 3 Virtual Tours<br>📸 15 Photos<br>🌍 Nairobi & Mombasa</p>
+      <p><strong>Ksh 12,000</strong></p>
+      <button class="button" onclick="openForm('Standard Package')">Request Package</button>
+    </div>
 
-      <div class="pricing-box">
-        <h3>Premium Package</h3>
-        <p>🎥 Unlimited Tours<br>📸 30+ Photos<br>🚗 Countrywide Coverage</p>
-        <p><strong>Ksh 25,000</strong></p>
-      </div>
+    <div class="pricing-box">
+      <h3>Premium Package</h3>
+      <p>🎥 Unlimited Tours<br>📸 30+ Photos<br>🚗 Countrywide Coverage</p>
+      <p><strong>Ksh 25,000</strong></p>
+      <button class="button" onclick="openForm('Premium Package')">Request Package</button>
+    </div>
+
+  </div>
+</section>
+
 
     </div>
   </section>
@@ -201,5 +232,44 @@
     &copy; 2025 Real View Kenya. All rights reserved.
   </footer>
 
+  <!-- Popup Booking Form -->
+<div id="popupForm">
+    <form onsubmit="submitForm(); return false;">
+      <h3>Request a Package</h3>
+      <input type="hidden" id="selectedPackage" />
+      <label>Name:</label><br>
+      <input type="text" id="name" required><br>
+      <label>Email:</label><br>
+      <input type="email" id="email" required><br>
+      <label>Phone:</label><br>
+      <input type="tel" id="phone" required><br>
+      <label>Message:</label><br>
+      <textarea id="message" rows="3"></textarea><br>
+      <button type="submit" class="button">Submit</button>
+      <button type="button" onclick="closeForm()">Cancel</button>
+    </form>
+  </div>
+
+  <script>
+    function openForm(packageName) {
+      document.getElementById("selectedPackage").value = packageName;
+      document.getElementById("popupForm").style.display = "flex";
+    }
+
+    function closeForm() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+
+    function submitForm() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const packageName = document.getElementById("selectedPackage").value;
+      const message = document.getElementById("message").value;
+
+      alert("Thank you " + name + "! Your request for the " + packageName + " has been received. We will contact you soon.");
+      closeForm();
+    }
+  </script>
 </body>
 </html>
