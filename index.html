@@ -283,27 +283,34 @@
     <a href="mailto:RealViewKenya@gmail.com" class="button">Email Us</a>
   </section>
 
-  <footer>
-    &copy; 2025 Real View Kenya. All rights reserved.
-  </footer>
-
   <!-- Popup Booking Form -->
-<div id="popupForm">
-    <form onsubmit="submitForm(); return false;">
+  <div id="popupForm">
+    <form action="https://formsubmit.co/RealViewKenya@gmail.com" method="POST">
       <h3>Request a Package</h3>
-      <input type="hidden" id="selectedPackage" />
+      <input type="hidden" id="selectedPackage" name="package" />
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://realviewkenya.com/thank-you.html">
+
       <label>Name:</label><br>
-      <input type="text" id="name" required><br>
+      <input type="text" id="name" name="name" required><br>
+
       <label>Email:</label><br>
-      <input type="email" id="email" required><br>
+      <input type="email" id="email" name="email" required><br>
+
       <label>Phone:</label><br>
-      <input type="tel" id="phone" required><br>
+      <input type="tel" id="phone" name="phone"><br>
+
       <label>Message:</label><br>
-      <textarea id="message" rows="3"></textarea><br>
+      <textarea id="message" name="message" rows="3"></textarea><br>
+
       <button type="submit" class="button">Submit</button>
       <button type="button" onclick="closeForm()">Cancel</button>
     </form>
   </div>
+  
+  <footer>
+    &copy; 2025 Real View Kenya. All rights reserved.
+  </footer>
 
   <script>
     function openForm(packageName) {
