@@ -74,6 +74,12 @@
       padding: 30px;
       border-radius: 10px;
     }
+      .socials a {
+      display: inline-block;
+      margin-right: 15px;
+      color: #0077cc;
+      text-decoration: none;
+    }
 
     footer {
       background-color: #0077cc;
@@ -92,10 +98,29 @@
       text-decoration: none;
       border-radius: 5px;
     }
+     .pricing-box {
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:20px;
+      width:300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+
+    .pricing-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
 
     @media screen and (max-width: 600px) {
       header h1 {
         font-size: 2rem;
+      }
+      .pricing-box {
+        width: 90%;
       }
     }
   </style>
@@ -105,6 +130,7 @@
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -129,12 +155,45 @@
       <li>📲 Social Media Listing Previews</li>
     </ul>
   </section>
+  
+ <section id="pricing">
+    <h2>Pricing Packages</h2>
+    <div class="pricing-wrapper">
 
+      <div class="pricing-box">
+        <h3>Basic Package</h3>
+        <p>🎥 1 Virtual Tour<br>📸 5 Photos<br>📍 Nairobi only</p>
+        <p><strong>Ksh 5,000</strong></p>
+      </div>
+
+      <div class="pricing-box">
+        <h3>Standard Package</h3>
+        <p>🎥 3 Virtual Tours<br>📸 15 Photos<br>🌍 Nairobi & Mombasa</p>
+        <p><strong>Ksh 12,000</strong></p>
+      </div>
+
+      <div class="pricing-box">
+        <h3>Premium Package</h3>
+        <p>🎥 Unlimited Tours<br>📸 30+ Photos<br>🚗 Countrywide Coverage</p>
+        <p><strong>Ksh 25,000</strong></p>
+      </div>
+
+    </div>
+  </section>
+  
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p><strong>Email:</strong> <a href="mailto:RealViewKenya@gmail.com">RealViewKenya@gmail.com</a></p>
     <p><strong>Phone/WhatsApp:</strong> <a href="tel:+254723540566">+254 723 540 566</a></p>
     <p><strong>Location:</strong> Nairobi, Kenya</p>
+    
+     <div class="socials">
+      <h3>Follow Us</h3>
+      <a href="https://www.tiktok.com/@realityviewkenya" target="_blank">TikTok: @realityviewkenya</a><br>
+      <a href="https://twitter.com/RealViewKE" target="_blank">Twitter: @RealViewKE</a><br>
+      <a href="https://www.linkedin.com/company/real-view-kenya" target="_blank">LinkedIn: Real View Kenya</a>
+    </div>
+
     <a href="mailto:RealViewKenya@gmail.com" class="button">Email Us</a>
   </section>
 
